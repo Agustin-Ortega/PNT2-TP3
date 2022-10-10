@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asesino de Monstruos</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://kit.fontawesome.com/7e69a7bbf0.js"></script>
+</head>
+<body><br><br>
+    <div id="app">
+        <section class="row">
+            <div class="small-6 columns">
+                <!-- <h1 class="text-center"><i class="fas fa-angry fa-2x"></i></h1> -->
+                <h2 class="text-center" style="color: antiquewhite;">Jugador</h2>
+                <section v-if="saludJugador>50 && cambio2==0">
+                    <div align="center">
+                        <img src="./img/goku05.png" width="210px">
+                    </div>
+
+                </section>
+                <section v-else-if="saludJugador>17 && cambio2==0">
+                    <div align="center">
+                        <img src="./img/goku02.png" width="192px">
+                    </div>
+                </section>
+                <section v-else-if="cambio2==0">
+                    <div align="center">
+                        <img src="./img/goku00.png" width="108px">
+                    </div>
+                </section>
+                <section v-else>
+                    <div align="center">
+                        <img src="./img/vegeta04.png" width="161px">
+                    </div>
+                </section>
+                <h1 class="text-center"></h1>
+                <div class="curarthbar">
+                <!-- rojo 'rgb(216, 46, 24)' -->
+                <!-- amarillo 'rgba(226, 241, 16, 0.884)' -->
+             <div class="curarthbar text-center" id="barra" :style="{width: saludJugador + '%','background-color':saludJugador<50? saludJugador<17?'rgb(216, 46, 24)':'rgba(226, 241, 16, 0.884)':'rgb(90, 192, 218)'}">{{ getSalud(saludJugador) }}</div>
+            </div>
+            </div>
+            <!-- ENEMIGO -->
+            <div class="small-6 columns">
+                <h2 class="text-center" style="color: antiquewhite;">Enemigo</h2>
+
+                <section v-if="saludMonstruo>40 && cambio2==0">
+                    <div align="center">
+                        <img src="./img/bills01.png" width="126px" class="pos2">
+                    </div>
+                </section>
+                <section v-else-if="cambio2==0">
+                    <div align="center">
+                        <img src="./img/bills2.png" width="153px">
+                    </div>
+                </section>
+                <section v-else>
+                    <div align="center">
+                        <img src="./img/mosco.png" width="190px">
+                    </div>
+                </section>
+            
+                <h1 class="text-center"></h1>
+                <div class="curarthbar">
+                    <div class="curarthbar text-center" id="barraEnemigo" :style="{width: saludMonstruo + '%','background-color':saludMonstruo<40? saludMonstruo<17?'rgb(216, 46, 24)':'rgba(226, 241, 16, 0.884)':'rgba(84, 4, 100, 0.945)','color': saludMonstruo<39?'black':'antiquewhite'}"> {{ getSalud(saludMonstruo) }}
+                </div>
+            </div>
+        </div>
+    </section>
+<!--------------------------------- PERSONAJES  -------------------------->
+
+
+<section class="row controls" v-if="!hayUnaPartidaEnJuego">
+    <div class="small-12 columns">
+        <button id="empezar-partida" @click="empezarPartida"> EMPEZAR JUEGO NUEVO</button>
+    </div>
+</section>
+<section class="row controls" v-else>
+    <div class="small-12 columns">
+        <section class="botones">
+            <button id="atacar" @click="atacar">ATACAR</button>
+            <button id="ataque-especial" @click="ataqueEspecial">ESPECIAL</button>
+            <button id="curar" @click="curar">CURAR</button>
+            <button id="rendirse" @click="terminarPartida">RENDIRSE</button>
+            <section v-if="this.saludJugador < 50 && cambio2==0">
+                <button id="cambiar" @click="cambiarJugador">CAMBIAR</button>
+            </section>
+            
+        </section>
+    </div>
+</section>
+
+<section class="row log" v-if="turnos.length > 0">
+    <div class="small-12 columns">
+        <!-- log de actividades -->
+        <ul>
+            <li v-for="(turno,index) in turnos" :class="cssEvento(turno)"
+                :style="{'text-align': turno.esJugador?'left':'right','opacity':index <=1?1:0.3}">
+                {{ turno.text }}
+            </li>
+        </ul>
+    </div>
+</section>
+</div>
+<script src="app.js"></script>
+</body>
+
+</html>

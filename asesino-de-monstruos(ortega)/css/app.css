@@ -1,0 +1,138 @@
+body{
+    /* background-color: rgba(17, 6, 56, 0.842); */
+    background-image: url("../img/vin.jpg");
+    background-attachment: fixed;
+    background-position: center unset;
+}
+.curarthbar{
+    border-radius: 14px;
+    margin: 0;
+}
+#barra{
+    border-radius: 12px;
+    margin: 0;
+}
+
+#barraEnemigo{
+    background-color: rgb(84, 4, 100); 
+    margin: 0;
+    border-radius: 13px;
+    
+}
+
+.text-center {
+    text-align: center;
+}
+
+.curarthbar {
+    width: 80%;
+    height: 30px;
+    background-color: #eee;
+    margin: auto;
+    transition: width 500ms;
+    font-size: 22px;
+}
+
+.controls, .log {
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 3px 6px #ccc;
+}
+
+.turno {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.log ul {
+    list-style: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
+
+.log ul li {
+    margin: 5px;
+    text-align: right;
+    padding:5px;
+}
+
+.log ul .player-turno {
+    color: #570445;
+    background-color: rgb(250, 238, 223);
+    border-radius: 5px;
+}
+
+.log ul .monster-turno {
+    color: antiquewhite;
+    background-color: #570445;
+    border-radius: 5px;
+}
+
+#botones{
+    min-width: 700px;
+    display: flex;
+    justify-content: space-around ;
+}
+
+button{
+    /* line-height: 80px; */
+    height: 80px;
+    width: 85px;
+    margin-left: 50px;
+    font-size: small;
+    text-align: center;
+    background: #314652;
+    color: antiquewhite;
+    border-radius: 50%;
+    box-shadow: 4px 4px rgba(0, 0, 0, 100);
+    transition: all .4s ease-in-out;
+
+}
+
+button:hover{
+    transform: scale(1.2);
+}
+
+
+#empezar-partida:hover {
+    background-color: rgba(255, 255, 255, 0.979);
+    color: black;
+}
+
+#atacar:hover {
+    background-color: rgb(255, 1, 52);
+    font-size: medium;
+    transition: 0.5s ease;
+}
+
+#ataque-especial:hover {
+    background-color: #ff00ff;
+    font-size: medium;
+    transition: 0.5s ease;
+}
+
+#curar:hover {
+    background-color: #48ff00e3;
+    font-size: medium;
+    transition: 0.5s ease;
+}
+#rendirse:hover {
+    background-color: black;
+    color: #eee;
+    font-size: medium;
+    transition: 0.5s ease;
+}
+
+#cambiar:hover {
+    border: solid rgba(238, 238, 238, 0.219);
+    background-color: #ff7b00;
+    box-shadow: 2px 5px 5px rgb(255, 255, 255);
+    color: antiquewhite;
+    font-size: medium;
+    transition: 0.5s ease;   
+}
